@@ -12,9 +12,9 @@ class SettinsScreen extends StatefulWidget {
 }
 
 class _SettinsScreenState extends State<SettinsScreen> {
-  // bool darkmodo = Preferences.isDark;
-  // int genero = 1;
-  // String nombreU = 'Jose Armando';
+  bool darkmodo = Preferences.isDark;
+  int genero = Preferences.genero;
+  String nombreU = Preferences.name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,28 +36,28 @@ class _SettinsScreenState extends State<SettinsScreen> {
                 ),
                 const Divider(),
                 SwitchListTile(
-                    value: Preferences.isDark,
+                    value: darkmodo,
                     title: const Text('Modo Oscuro'),
                     onChanged: (value) {
-                      Preferences.isDark = value;
+                      darkmodo = value;
                       setState(() {});
                     }),
                 const Divider(),
                 RadioListTile<int>(
                     value: 1,
-                    groupValue: Preferences.genero,
+                    groupValue: genero,
                     title: const Text('Masculino'),
                     onChanged: (value) {
-                      Preferences.genero = value ?? 1;
+                     genero = value ?? 1;
                       setState(() {});
                     }),
                 const Divider(),
                 RadioListTile<int>(
                     value: 2,
-                    groupValue: Preferences.genero,
+                    groupValue:genero,
                     title: const Text('Femenino'),
                     onChanged: (value) {
-                      Preferences.genero = value ?? 2;
+                      genero = value ?? 2;
                       setState(() {});
                     }),
                 const Divider(),
@@ -65,9 +65,9 @@ class _SettinsScreenState extends State<SettinsScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: TextFormField(
-                    initialValue: Preferences.name,
+                    initialValue: nombreU,
                     onChanged: (value) {
-                      Preferences.name = value;
+                     nombreU = value;
                       setState(() {});
                     },
                     decoration: const InputDecoration(
