@@ -6,7 +6,7 @@ import 'package:preferencias_usuario/shere_preference/preferences.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   // ignore: await_only_futures
-  await Preferences.init;
+  await Preferences.init();
   runApp(const MyApp());
 }
 
